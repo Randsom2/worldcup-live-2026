@@ -1,0 +1,381 @@
+:root {
+  --page: #f2f5f1;
+  --surface: #fffdf8;
+  --surface-strong: #ffffff;
+  --ink: #17211c;
+  --muted: #667069;
+  --line: #dfe5dd;
+  --green: #15745c;
+  --green-dark: #0f5746;
+  --blue: #285f91;
+  --red: #c5403a;
+  --amber: #b97722;
+  --shadow: 0 18px 60px rgba(23, 33, 28, 0.13);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--page);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.page-shell {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.scoreboard {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.hero-band {
+  min-height: 280px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+  align-items: end;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 32px;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(12, 36, 31, 0.92), rgba(12, 36, 31, 0.55)),
+    url("https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1600&q=80")
+      center/cover;
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 720px;
+  margin: 0;
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.hero-copy {
+  max-width: 620px;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.source-panel {
+  display: grid;
+  gap: 7px;
+  justify-items: start;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+}
+
+.source-panel span:not(.source-dot) {
+  font-weight: 800;
+}
+
+.source-panel small {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.source-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+.source-dot.api {
+  background: #34d399;
+}
+
+.notice {
+  margin: 18px 0 0;
+  border: 1px solid #d8c491;
+  border-radius: 8px;
+  background: #fff7dc;
+  color: #6f5016;
+  padding: 14px 16px;
+  font-weight: 700;
+}
+
+.notice.error {
+  border-color: #efb0ad;
+  background: #fff0ef;
+  color: #8a2924;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 22px 0 16px;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 8px;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.segmented button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  font-weight: 800;
+}
+
+.segmented button.active,
+.segmented button:hover {
+  color: white;
+  background: var(--green);
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  display: grid;
+  gap: 8px;
+  min-height: 104px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  padding: 18px;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.stat-card strong {
+  align-self: end;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.match-section {
+  min-height: 320px;
+}
+
+.match-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.match-card {
+  display: grid;
+  gap: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  padding: 18px;
+  box-shadow: 0 8px 28px rgba(23, 33, 28, 0.06);
+}
+
+.match-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 999px;
+  color: white;
+  background: var(--blue);
+  padding: 0 10px;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.status-badge.live {
+  background: var(--red);
+}
+
+.status-badge.halftime {
+  background: var(--amber);
+}
+
+.status-badge.finished {
+  background: var(--green-dark);
+}
+
+.status-badge.postponed,
+.status-badge.cancelled {
+  background: #6c7076;
+}
+
+.teams {
+  display: grid;
+  gap: 12px;
+}
+
+.team-line {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.team-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 8px;
+  color: white;
+  background: var(--green);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.team-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+}
+
+.team-line strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 1.05rem;
+}
+
+.team-line small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.team-score {
+  min-width: 32px;
+  text-align: right;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.match-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.empty-state {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed #bdc8bf;
+  border-radius: 8px;
+  color: var(--muted);
+  background: rgba(255, 253, 248, 0.72);
+  padding: 32px;
+  text-align: center;
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  .page-shell {
+    padding: 12px;
+  }
+
+  .hero-band {
+    grid-template-columns: 1fr;
+    min-height: 360px;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .source-panel {
+    width: 100%;
+  }
+
+  .segmented,
+  .summary-grid,
+  .match-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .match-topline,
+  .match-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .team-line {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+  }
+
+  .team-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .team-score {
+    font-size: 1.45rem;
+  }
+}
