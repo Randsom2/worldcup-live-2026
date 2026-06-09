@@ -13,6 +13,10 @@ La v1 fonctionne en deux modes :
 - `demo` : actif automatiquement si aucune cle API n'est configuree.
 - `api` : actif quand `API_FOOTBALL_KEY` est ajoutée dans l'environnement serveur.
 
+Note : le plan gratuit API-Football peut bloquer certaines saisons récentes ou futures.
+Si la saison 2026 n'est pas disponible dans le forfait actif, le site garde les scores live
+quand l'endpoint live répond, mais repasse en données demo pour le calendrier.
+
 ## Lancer en local
 
 ```bash

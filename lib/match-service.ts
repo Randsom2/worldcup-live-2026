@@ -132,7 +132,8 @@ async function fetchApiMatches(view: MatchView, apiKey: string): Promise<Normali
   const payload = (await response.json()) as ApiFootballPayload;
 
   if (!response.ok || hasApiErrors(payload.errors)) {
-    throw new Error(`reponse API ${response.status}`);
+    const apiMessage = formatApiErrors(payload.errors);
+    throw new Error(apiMessage || `reponse API ${response.status}`);
   }
 
   return (payload.response || [])
@@ -240,4 +241,14 @@ function hasApiErrors(errors: ApiFootballPayload["errors"]): boolean {
   if (!errors) return false;
   if (Array.isArray(errors)) return errors.length > 0;
   return Object.keys(errors).length > 0;
+}
+
+function formatApiErrors(errors: ApiFootballPayload["errors"]): string {
+  if (!errors) return "";
+  if (Array.isArray(errors)) return errors.map(String).join(", ");
+
+  return Object.values(errors)
+    .filter(Boolean)
+    .map(String)
+    .join(", ");
 }
